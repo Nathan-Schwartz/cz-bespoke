@@ -1,0 +1,43 @@
+{
+  "name": "commitizen-custom-adapter",
+  "version": "0.0.0",
+  "description": "A versatile commitizen adapter",
+  "main": "dist/engine.js",
+  "scripts": {
+    "test": "nyc ava",
+    "clean-dist": "rm -rf dist && mkdir dist",
+    "build": "yarn clean-dist && babel src -d dist",
+    "build:watch": "yarn clean-dist && babel src -d dist -w",
+    "commit": "git-cz"
+  },
+  "author": "Nathan Schwartz <nathan.schwartz95@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "ava": "^0.19.1",
+    "babel-cli": "^6.24.1",
+    "babel-preset-latest": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "babili": "^0.0.12",
+    "commitizen": "^2.9.6",
+    "deep-defaults": "^1.0.4",
+    "longest": "^2.0.0",
+    "nyc": "^10.3.2",
+    "right-pad": "^1.0.1",
+    "word-wrap": "^1.2.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./cz-bespoke-config"
+    }
+  },
+  "ava": {
+    "files": [
+      "tests/**/*.spec.js"
+    ],
+    "require": [
+      "babel-register",
+      "babel-polyfill"
+    ],
+    "babel": "inherit"
+  }
+}
