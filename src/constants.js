@@ -1,4 +1,5 @@
-// types courtesy of https://github.com/adjohnson916/conventional-commit-types
+// defaultTypes courtesy of https://github.com/adjohnson916/conventional-commit-types
+
 module.exports = {
   defaultPromptLabels: {
     type: 'Select the type of change that you\'re committing:',
@@ -7,6 +8,7 @@ module.exports = {
     body: 'Provide a longer description of the change:\n',
     breaking: 'List any breaking changes:\n',
     issues: 'List any issues closed by this change:\n',
+    commitConfirmation: 'Are you sure you want to make this commit?',
   },
   defaultTypes: [
     {

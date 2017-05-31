@@ -1,49 +1,34 @@
 const {
   defaultCommitFormatter,
-  defaultPromptBuilder
+  defaultPromptBuilder,
+  promptAndCommit,
 } = require('./util');
 
-
-// Main export.
+// `engine` will use all of the default settings if invoked.
 function engine() {
   return engine.tweak();
 }
+
+// `engine.overhaul` uses a configuration object with only 2 properties: formatter and prompts.
+// These two properties can be used to change the entire experience.
 engine.overhaul = function overhaul({ prompts, formatter}) {
- if (prompts && !formatter) {
+  if (prompts && !formatter) {
     throw new Error("If using the overhaul's `options.prompts` option, `option.formatter` must also be supplied.");
   }
 
-  return promptsAndCommit({ 
+  return promptAndCommit({ 
     prompts: prompts || defaultPromptBuilder(),
     formatter: formatter || defaultCommitFormatter(),
   });
 }
+
+// `engine.tweak` takes a more complex configuration object and aims to provide a high level of customization, 
+// while still adhering to the conventional-commit standard.
 engine.tweak = function tweak(options) {
-  return promptsAndCommit({ 
+  return promptAndCommit({ 
     prompts: defaultPromptBuilder(options),
     formatter: defaultCommitFormatter(options),
   });
-}
-
-
-function promptsAndCommit({ prompts, formatter}) {
-  // When a user runs `git-cz`, prompter will be executed. 
-  // `cz` is an instance of inquirer.js.
-  // The `commit` callback will send a commit template back to git.
-
-  return {
-    prompter: function(cz, commit) {
-      console.log('\nLine 1 will be cropped at 100 characters. All other lines will be wrapped after 100 characters.\n');
-
-      cz.prompt(prompts)
-        .then(function(answers) {
-          return formatter(answers, commit, cz);
-        })
-        .catch((...args) => {
-          console.log("Unexpected Error:", ...args)
-        });
-    }
-  }
 }
 
 module.exports = engine;

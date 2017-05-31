@@ -4,7 +4,7 @@
   "description": "A versatile commitizen adapter",
   "main": "dist/engine.js",
   "scripts": {
-    "test": "nyc ava",
+    "test": "yarn build && echo '\nLaunching AVA' && NODE_ENV=test nyc ava",
     "clean-dist": "rm -rf dist && mkdir dist",
     "build": "yarn clean-dist && babel src -d dist",
     "build:watch": "yarn clean-dist && babel src -d dist -w",
@@ -12,6 +12,12 @@
   },
   "author": "Nathan Schwartz <nathan.schwartz95@gmail.com>",
   "license": "MIT",
+  "keywords": [
+    "commitizen",
+    "cz",
+    "conventional-changelog",
+    "custom"
+  ],
   "devDependencies": {
     "ava": "^0.19.1",
     "babel-cli": "^6.24.1",

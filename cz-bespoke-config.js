@@ -7,6 +7,7 @@ module.exports = intializeCommitizen.tweak({
     'type': 'Commit prefix (should match branch)',
     'subject': 'Short version',
     'body': 'Please type full description',
+    'commitConfirmation': 'Does this look correct?',
   },
   choices: {
     type: [
@@ -29,17 +30,25 @@ module.exports = intializeCommitizen.tweak({
       'Docs',
     ],
   },
-  // excludeScope: true,
-  // excludeBreaking: true,
-  // excludeIssues: true,
+
+  allowCustomScope: true,
+  // allowCustomType: true,
+
+  // skipScope: true,
+  // skipBreaking: true,
+  // skipIssues: true,
+  // skipCommitConfirmation: true
 });
 
+
+// // Basic usage
 // module.exports = intializeCommitizen();
 
+// // Overhaul usage
 // module.exports = intializeCommitizen.overhaul({
 //   prompts: [
 //     {
-//       message: 'Oh ahi', // description
+//       message: 'Oh hai', // description
 //       type: 'input', // any inquirer type (https://github.com/sboudrias/Inquirer.js#question)
 //       name: 'q',
 //       // choices: [], // if applicable

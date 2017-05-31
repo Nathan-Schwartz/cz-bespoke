@@ -1,4 +1,4 @@
 {
-  "presets": ["latest", "stage-2", "babili"],
+  "presets": ["latest", "stage-2"],
   "comments": false
 }
