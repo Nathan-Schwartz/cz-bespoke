@@ -1,7 +1,9 @@
 const test = require('ava');
 const constants = require('../src/constants');
 
-test(`constants.js: exports an object with toplevel keys: defaultPromptLabels and defaultTypes`, (t) => {
+// Flowtype / Typescript would make this obsolete.
+
+test(`[constants.js]: exports an object with toplevel keys: defaultPromptLabels and defaultTypes`, (t) => {
   t.true(typeof constants === 'object')
   t.deepEqual(Object.keys(constants), ['defaultPromptLabels', 'defaultTypes'])
 });
