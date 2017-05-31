@@ -1,9 +1,7 @@
-.nyc_output/
+.nyc_output
 coverage
-dist
-node_modules
 .DS_Store
-
+node_modules
 src
 test
 cz-custom-config.js

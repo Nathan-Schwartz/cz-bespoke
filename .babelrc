@@ -1,4 +1,11 @@
 {
-  "presets": ["latest", "stage-2"],
-  "comments": false
+  "env": {
+    "production": {
+      "presets": ["latest", "stage-2", "babili"],
+      "comments": false
+    },
+    "development": {
+      "presets": ["latest", "stage-2"],
+    }
+  }
 }
