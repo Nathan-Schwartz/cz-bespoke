@@ -1,6 +1,6 @@
 {
   "name": "cz-bespoke",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A versatile commitizen adapter",
   "main": "dist/engine.js",
   "scripts": {

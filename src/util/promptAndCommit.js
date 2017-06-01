@@ -4,17 +4,10 @@ function promptAndCommit({ prompts, formatter}) {
   // The `commit` callback will send a commit template back to git.
 
   return {
-    prompter: function(inquirer, commit) {
-      console.log('\nLine 1 will be cropped at 100 characters. All other lines will be wrapped after 100 characters.\n');
-      
-      return inquirer.prompt(prompts)
-        .then(function(answers) {
-          return formatter(answers, commit, inquirer);
-        })
-        .catch((...args) => {
-          console.log("Unexpected Error:", ...args)
-        });
-    }
+    prompter: (inquirer, commit) =>
+      inquirer
+        .prompt(prompts)
+        .then(answers => formatter(answers, commit, inquirer))
   }
 }
 
