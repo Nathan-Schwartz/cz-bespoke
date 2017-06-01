@@ -4,26 +4,12 @@ const intializeCommitizen = require('./dist/engine');
 
 module.exports = intializeCommitizen.tweak({
   labels: {
-    'type': 'Commit prefix (should match branch)',
-    'subject': 'Short version',
-    'body': 'Please type full description',
+    'type': 'Type of change',
+    'subject': 'Brief summary of changes',
+    'body': 'Please add the full description',
     'commitConfirmation': 'Does this look correct?',
   },
   choices: {
-    type: [
-      {
-        title: 'feat',
-        description: "A new feature",
-      },
-      {
-        title: 'bug',
-        description: 'Fixes an existing issue',
-      },
-      {
-        title: 'chore',
-        description: 'A task that is neither a bug nor feature',
-      },
-    ],
     scope: [
       'Build/Publish',
       'Testing',

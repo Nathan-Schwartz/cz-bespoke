@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "deep-defaults": "^1.0.4",
+    "inquirer": "^3.0.6",
     "longest": "^2.0.0",
     "right-pad": "^1.0.1",
     "word-wrap": "^1.2.2"

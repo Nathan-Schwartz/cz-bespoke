@@ -6,6 +6,9 @@
     },
     "development": {
       "presets": ["latest", "stage-2"],
+    },
+    "test": {
+      "presets": ["latest", "stage-2"],
     }
   }
 }

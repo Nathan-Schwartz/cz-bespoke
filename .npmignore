@@ -3,6 +3,7 @@ coverage
 .DS_Store
 node_modules
 src
-test
+tests
 cz-custom-config.js
 .babelrc
+*.log
