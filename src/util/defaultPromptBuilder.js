@@ -51,8 +51,8 @@ function defaultPromptBuilder(options) {
           // If no custom validator for subject, check the line length.
           if (key === 'subject') {
             realAnswers.scope = realAnswers.scope || '';
-            if(formatHead(realAnswers).length > safeOptions.firstLineLength) {
-              return `The subject you enterred is ${formatHead(realAnswers).length - safeOptions.firstLineLength} characters too long.`;
+            if(formatHead(realAnswers).length > safeOptions.subjectLineLength) {
+              return `The subject you enterred is ${formatHead(realAnswers).length - safeOptions.subjectLineLength} characters too long.`;
             }
           }
           return true;

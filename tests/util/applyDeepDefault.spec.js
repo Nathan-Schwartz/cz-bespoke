@@ -5,11 +5,18 @@ const { defaultTypes, defaultPromptLabels } = require('../../src/constants');
 test('[util] applyDeepDefault(): Should supplement options when needed. Should add default values when data is missing.', (t) => {
 
   // This is the expected default if no customizations were present;
-  const base = { validation: {}, labels: defaultPromptLabels, choices: { type: defaultTypes }, firstLineLength: 100 }
+  const base = {
+    validation: {},
+    labels: defaultPromptLabels,
+    choices: { type: defaultTypes },
+    subjectLineLength: 100,
+    bodyLineLength: 100,
+  }
 
   // This is a fully customized config
   const totalCustom = {
-    firstLineLength: 50,
+    subjectLineLength: 50,
+    bodyLineLength: 70,
     labels: {
       type: 'not default type',
       scope: 'not default scope',
@@ -30,7 +37,13 @@ test('[util] applyDeepDefault(): Should supplement options when needed. Should a
     // Incorrect (should be object)
     {
       initial: { labels: [] },
-      expected: { labels: defaultPromptLabels, choices: { type: defaultTypes }, firstLineLength: 100, validation: {} }
+      expected: {
+        labels: defaultPromptLabels,
+        choices: { type: defaultTypes },
+        subjectLineLength: 100,
+        bodyLineLength: 100,
+        validation: {},
+      }
     },
 
     // Incomplete

@@ -12,9 +12,8 @@ const defaultCommitFormatter = (options) => (answers, commit, inquirer) => {
     trim: true,
     newline: '\n',
     indent:'',
-    width: safeOptions.firstLineLength
+    width: safeOptions.bodyLineLength
   };
-
 
   // Prevent type errors by adding empty data for excluded prompts.
   if (safeOptions.skipScope) answers.scope = '';
@@ -22,9 +21,9 @@ const defaultCommitFormatter = (options) => (answers, commit, inquirer) => {
   if (safeOptions.skipIssues) answers.issues = '';
 
   // Hard limit this line
-  const head = formatHead(answers).slice(0, safeOptions.firstLineLength)
+  const head = formatHead(answers).slice(0, safeOptions.subjectLineLength)
 
-  // Wrap these lines at 100 characters
+  // Wrap these lines at specified width
   const body = wrap(answers.body, wrapOptions);
 
   // Apply breaking change prefix, removing it if already present

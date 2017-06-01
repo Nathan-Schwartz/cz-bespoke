@@ -24,6 +24,8 @@ module.exports = intializeCommitizen.tweak({
   // skipBreaking: true,
   // skipIssues: true,
   // skipCommitConfirmation: true
+  subjectLineLength: 50,
+  bodyLineLength: 70
 });
 
 
