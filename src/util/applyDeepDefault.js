@@ -5,7 +5,12 @@ const { defaultTypes, defaultPromptLabels } = require('../constants');
 
 const applyDeepDefault = (options) => {
   // Add in missing structure
-  const safeOptions = deepDefaults({ labels: {}, choices: {}, validation: {} }, options);
+  const safeOptions = deepDefaults({
+    labels: {},
+    choices: {},
+    validation: {},
+    useEditor: {},
+  }, options);
 
   // Fill in any missing values. (package does not handle this as expected)
   safeOptions.choices.type = safeOptions.choices.type || defaultTypes;

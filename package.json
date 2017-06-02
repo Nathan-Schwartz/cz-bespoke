@@ -1,6 +1,6 @@
 {
   "name": "cz-bespoke",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "A versatile commitizen adapter",
   "main": "dist/engine.js",
   "scripts": {
@@ -9,7 +9,7 @@
     "build": "yarn clean-dist && babel src -d dist",
     "build:watch": "yarn clean-dist && babel src -d dist -w",
     "commit": "git-cz",
-    "prepublish": "NODE_ENV=production yarn build"
+    "prepublish": "yarn test && NODE_ENV=production yarn build"
   },
   "author": "Nathan Schwartz <nathan.schwartz95@gmail.com>",
   "license": "MIT",

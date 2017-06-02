@@ -9,14 +9,9 @@ module.exports = intializeCommitizen.tweak({
     'body': 'Please add the full description',
     'commitConfirmation': 'Does this look correct?',
   },
-  choices: {
-    scope: [
-      'Build/Publish',
-      'Testing',
-      'Docs',
-    ],
+  useEditor: {
+    body: true
   },
-
   allowCustomScope: true,
   // allowCustomType: true,
 

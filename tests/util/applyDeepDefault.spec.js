@@ -7,6 +7,7 @@ test('[util] applyDeepDefault(): Should supplement options when needed. Should a
   // This is the expected default if no customizations were present;
   const base = {
     validation: {},
+    useEditor: {},
     labels: defaultPromptLabels,
     choices: { type: defaultTypes },
     subjectLineLength: 100,
@@ -17,6 +18,9 @@ test('[util] applyDeepDefault(): Should supplement options when needed. Should a
   const totalCustom = {
     subjectLineLength: 50,
     bodyLineLength: 70,
+    useEditor: {
+      body: true
+    },
     labels: {
       type: 'not default type',
       scope: 'not default scope',
@@ -43,6 +47,7 @@ test('[util] applyDeepDefault(): Should supplement options when needed. Should a
         subjectLineLength: 100,
         bodyLineLength: 100,
         validation: {},
+        useEditor: {},
       }
     },
 

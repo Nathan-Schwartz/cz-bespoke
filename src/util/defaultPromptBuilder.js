@@ -17,6 +17,7 @@ function defaultPromptBuilder(options) {
     .reduce((acc, key) => {
 
       let realAnswers;
+      let editor = safeOptions.useEditor[key] ? 'editor' : 'input';
 
       // Ensure that choices is an array, both for type consistency and ease of use. 
       const choices = safeOptions.choices[key] || [];
@@ -36,7 +37,7 @@ function defaultPromptBuilder(options) {
 
       const sharedConfig = {
         // If presets have been provided for this prompt, change to `list` input type
-        type: (choices.length > 0) ? 'list' : 'input',
+        type: (choices.length > 0) ? 'list' : editor,
         message: safeOptions.labels[key],
         name: key,
         validate: (input) => {
@@ -73,7 +74,7 @@ function defaultPromptBuilder(options) {
       if (allowCustom) {
         acc.push({
           ...sharedConfig,
-          type: 'input',
+          type: editor,
           when: (answers) => answers[key] === "custom",
         });
       }
